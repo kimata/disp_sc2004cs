@@ -15,6 +15,7 @@
 
 #include <stdint.h>
 
+// BCM2835 ARM Peripherals 
 // Table 6-3 – GPIO Alternate function select register 1 
 typedef enum {
   RP_GPIO_INPUT	= 0x0,
