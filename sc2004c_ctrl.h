@@ -16,7 +16,7 @@
 #include <stdint.h>
 
 void sc2004c_init();
-void sc2004c_print(const unsigned char *str);
+void sc2004c_print(const char *str);
 void sc2004c_set_line(uint8_t line);
 void sc2004c_set_pos(uint8_t line, uint8_t offset);
 

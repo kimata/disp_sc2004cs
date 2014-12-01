@@ -36,9 +36,10 @@
 
 void sc2004c_wait(struct timespec *time)
 {
-    if (nanosleep(time, NULL) == -1) {
-        printf("ERROR: cannot nanosleep (at %s:%d)\n", __FILE__, __LINE__);
-        exit(EXIT_FAILURE);
+    uint32_t i;
+    uint32_t nsec = (uint32_t)time->tv_nsec;
+    for (i = 0; i < nsec; i++) {
+        __asm__ volatile("nop");
     }
 }
 
@@ -114,12 +115,12 @@ void sc2004c_init()
     sc2004c_exec_cmd8(0, ((0) << 4) | (DB7 | DB6));
 }
 
-void sc2004c_print(const unsigned char *str)
+void sc2004c_print(const char *str)
 {
     uint8_t i;
     unsigned char c;
     i = 0;
-    while ((c = str[i++]) != '\0') {
+    while ((c = (unsigned char)str[i++]) != '\0') {
         sc2004c_putc(c);
     }
 }

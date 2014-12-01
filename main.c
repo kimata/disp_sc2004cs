@@ -4,11 +4,11 @@
 
 int main(int argc,char *argv[])
 {
-  int i;
-
   sc2004c_init();
   sc2004c_print("SC2004CS control");
   sc2004c_set_line(1);
   sc2004c_print("By Raspberry Pi!");
+  
+  return 0;
 }
 
