@@ -20,20 +20,13 @@
 #include "sc2004c_ctrl.h"
 
 #define GPIO_POS_RS	24			// GPIO24
-#define GPIO_POS_RW	26			// GPIO26
 #define GPIO_POS_EN	25			// GPIO25
 #define GPIO_POS_D4	12			// GPIO12
 #define GPIO_POS_D5	13			// GPIO13
 #define GPIO_POS_D6	14			// GPIO14
 #define GPIO_POS_D7	15			// GPIO15
 
-#define GPIO_BIT_RS	(1 << GPIO_POS_RS)
-#define GPIO_BIT_RW	(1 << GPIO_POS_RW)
 #define GPIO_BIT_EN	(1 << GPIO_POS_EN)
-#define GPIO_BIT_D4	(1 << GPIO_POS_D4)
-#define GPIO_BIT_D5	(1 << GPIO_POS_D5)
-#define GPIO_BIT_D6	(1 << GPIO_POS_D6)
-#define GPIO_BIT_D7	(1 << GPIO_POS_D7)
 
 #define DB4			(1 << 0)
 #define DB5			(1 << 1)
@@ -92,7 +85,6 @@ void sc2004c_init()
     rp_gpio_set_output_bits(0);
 
     rp_gpio_set_mode(GPIO_POS_RS, RP_GPIO_OUTPUT);
-    rp_gpio_set_mode(GPIO_POS_RW, RP_GPIO_OUTPUT);
     rp_gpio_set_mode(GPIO_POS_EN, RP_GPIO_OUTPUT);
     rp_gpio_set_mode(GPIO_POS_D4, RP_GPIO_OUTPUT);
     rp_gpio_set_mode(GPIO_POS_D5, RP_GPIO_OUTPUT);
