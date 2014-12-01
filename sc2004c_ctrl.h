@@ -7,7 +7,6 @@
  * modify it under the terms of the GNU General Public License as
  * published by the Free Software Foundation, version 2.
  *
- * original: http://www.myu.ac.jp/~xkozima/lab/resource/raspberry/IOKit/raspGPIO.h
  */
 
 #ifndef SC2004C_CTRL_H
