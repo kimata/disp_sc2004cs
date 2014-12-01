@@ -20,9 +20,9 @@
 
 // BCM2835 ARM Peripherals 
 // 1.2 Address map
-#define PERI_BASE	0x20000000
-#define GPIO_OFF	0x200000
-#define GPIO_BASE	(PERI_BASE + GPIO_OFF)
+#define PERI_BASE   0x20000000
+#define GPIO_OFF    0x200000
+#define GPIO_BASE   (PERI_BASE + GPIO_OFF)
 
 static volatile uint32_t *gpio_reg = NULL;
 

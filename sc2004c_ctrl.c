@@ -1,5 +1,5 @@
 /*
- * Raspberry Pi GPIO utility
+ * Raspberry Pi SC2004C Utility
  *
  * Copyright (C) 2014 Tetsuya Kimata <kimata@green-rabbit.net>
  *
@@ -19,19 +19,19 @@
 #include "rp_gpio.h"
 #include "sc2004c_ctrl.h"
 
-#define GPIO_POS_RS	24			// GPIO24
-#define GPIO_POS_EN	25			// GPIO25
-#define GPIO_POS_D4	12			// GPIO12
-#define GPIO_POS_D5	13			// GPIO13
-#define GPIO_POS_D6	14			// GPIO14
-#define GPIO_POS_D7	15			// GPIO15
+#define GPIO_POS_RS 24          // GPIO24
+#define GPIO_POS_EN 25          // GPIO25
+#define GPIO_POS_D4 12          // GPIO12
+#define GPIO_POS_D5 13          // GPIO13
+#define GPIO_POS_D6 14          // GPIO14
+#define GPIO_POS_D7 15          // GPIO15
 
-#define GPIO_BIT_EN	(1 << GPIO_POS_EN)
+#define GPIO_BIT_EN (1 << GPIO_POS_EN)
 
-#define DB4			(1 << 0)
-#define DB5			(1 << 1)
-#define DB6			(1 << 2)
-#define DB7			(1 << 3)
+#define DB4         (1 << 0)
+#define DB5         (1 << 1)
+#define DB6         (1 << 2)
+#define DB7         (1 << 3)
 
 
 void sc2004c_wait(struct timespec *time)
@@ -44,9 +44,9 @@ void sc2004c_wait(struct timespec *time)
 
 void sc2004c_exec_cmd4(uint8_t rs, uint8_t code, bool is_wait)
 {
-    struct timespec setup_time 		= { 0, 80 };	// TDSW = 80ns
-    struct timespec hold_time 		= { 0, 10 };	// TH = 10ns
-    struct timespec cmd_wait_time   = { 0, (long)(37   * 1E3) };	// 37us
+    struct timespec setup_time      = { 0, 80 };    // TDSW = 80ns
+    struct timespec hold_time       = { 0, 10 };    // TH = 10ns
+    struct timespec cmd_wait_time   = { 0, (long)(37   * 1E3) };    // 37us
 
     // if these are not true, then fix code.
     assert(GPIO_POS_D5 == GPIO_POS_D4 + 1);
@@ -77,9 +77,9 @@ void sc2004c_putc(const unsigned char c)
 
 void sc2004c_init()
 {
-    struct timespec init_wait1_time = { 0, (long)(4.1  * 1E6) };	// 4.1ms
-    struct timespec init_wait2_time = { 0, (long)(100  * 1E3) };	// 100us
-    struct timespec clear_wait_time = { 0, (long)(1.53 * 1E6) };	// 1.53ms
+    struct timespec init_wait1_time = { 0, (long)(4.1  * 1E6) };    // 4.1ms
+    struct timespec init_wait2_time = { 0, (long)(100  * 1E3) };    // 100us
+    struct timespec clear_wait_time = { 0, (long)(1.53 * 1E6) };    // 1.53ms
 
     rp_gpio_init();
     rp_gpio_set_output_bits(0);
