@@ -1,16 +1,14 @@
 #include <stdio.h>
 #include "rp_gpio.h"
+#include "sc2004c_ctrl.h"
 
 int main(int argc,char *argv[])
 {
   int i;
 
-  rp_gpio_init();
-  rp_gpio_set_mode(14, RP_GPIO_OUTPUT);
-  rp_gpio_set_output_bits(1 << 14);
-
-
-
-  printf("OK?\n");
+  sc2004c_init();
+  sc2004c_print("SC2004CS control");
+  sc2004c_set_line(1);
+  sc2004c_print("By Raspberry Pi!");
 }
 
